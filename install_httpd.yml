@@ -1,0 +1,19 @@
+---
+
+- hosts: all
+  become: true
+  tasks:
+  
+  - name: update repository index
+    yum:
+      update_cache: yes
+
+  - name: install httpd pachage
+    yum:
+      name: httpd
+      state: latest
+  
+  - name: insatll php
+    yum:
+      name: php
+      state: latest
