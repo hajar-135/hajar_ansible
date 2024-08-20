@@ -6,6 +6,7 @@
   tasks:
   
   - name: install updates
+    tags: always,CentoOS
     yum:
       update_only: yes
       update_cache: yes
@@ -15,6 +16,7 @@
   tasks:
   
   - name: install httpd and php packages
+    tags: httpd,php,CentOS,web
     package:
       name: 
         - httpd
@@ -26,6 +28,7 @@
   tasks:
   
   - name: insatll mariadb
+    tags: mariadb,CentOS,db
     yum:
       name: mariadb.x86_64
       state: latest
