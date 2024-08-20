@@ -1,13 +1,23 @@
 ---
 
+
 - hosts: all
+  become: true
+  tasks:
+  
+  - name: install updates
+    yum:
+      update_only: yes
+      update_cache: yes
+
+- hosts: web_servers
   become: true
   tasks:
   
   - name: install httpd and php packages
     package:
       name: 
-        - "{{ httpd_package }}"
-        - "{{ php_package }}"
+        - httpd
+        - php
       state: latest
-      update_cache: yes
+      
