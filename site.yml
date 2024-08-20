@@ -1,0 +1,31 @@
+---
+
+
+- hosts: all
+  become: true
+  tasks:
+  
+  - name: install updates
+    yum:
+      update_only: yes
+      update_cache: yes
+
+- hosts: web_servers
+  become: true
+  tasks:
+  
+  - name: install httpd and php packages
+    package:
+      name: 
+        - httpd
+        - php
+      state: latest
+      
+- hosts: db_servers
+  become: true
+  tasks:
+  
+  - name: insatll mariadb
+    yum:
+      name: mariadb.x86_64
+      state: latest
