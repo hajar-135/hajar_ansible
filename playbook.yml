@@ -1,0 +1,18 @@
+- name: Variable Demo
+  hosts: all
+  become: false
+  gather_facts: false
+  
+  vars:
+
+     my_string: yellow
+
+  vars_files:
+    - my_vars.yml
+
+  tasks:
+
+
+    - name: Prints the value of my_string
+      ansible.builtin.debug:
+       msg: The valuse of the variable my_string is {{ my_string }}

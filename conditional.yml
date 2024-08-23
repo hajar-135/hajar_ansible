@@ -1,0 +1,12 @@
+---
+
+- name: Simple Boolean Task Demo
+  hosts: all
+  become: true
+  vars:
+    run_my_task: false
+  tasks:
+    - name: httpd package is installed
+      ansible.builtin.yum:
+       name: httpd
+      when: run_my_task
